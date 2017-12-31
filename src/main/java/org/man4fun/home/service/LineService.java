@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface LineService {
-    public GsonOption getOption();
+    GsonOption getOption();
 }
