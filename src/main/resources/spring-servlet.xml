@@ -35,13 +35,6 @@
         <property name="url" value="${jdbc.url}" />
     </bean>
 
-    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
-    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactory">-->
-        <!--<property name="dataSource" ref="dataSource" />-->
-        <!--&lt;!&ndash; 自动扫描mapping.xml文件 &ndash;&gt;-->
-        <!--<property name="mapperLocations" value="classpath:com/cn/hnust/mapping/*.xml"></property>-->
-    <!--</bean>-->
-
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!-- 配置spring与mybatis结合 -->
@@ -49,12 +42,17 @@
         <property name="dataSource" ref="dataSource" />
         <property name="configLocation" value="classpath:mybatis-config.xml" />
         <!-- 自动扫描mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath:org/man4fun/home/mapper/*.xml" />
+        <property name="mapperLocations" value="classpath:org/man4fun/home/dao/*.xml" />
     </bean>
-    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+
+
+    <!-- Mapper批量扫描，从包中扫描出所有Mapper接口即Dao，自动创建代理对象，并在Spring中注册
+        扫描得到的mapper的bean的id为mapper类名首字母小写-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="org.man4fun.home.dao" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        <!-- 指定扫描的包名，如果扫描多个包，每个包之间使用逗号分隔 -->
+        <property name="basePackage" value="org.man4fun.home.dao"/>
+        <!-- 遵循Mapper代理规范：mapper.java与mapper.xml名称一致且在一个目录。mapper.xml的命名空间指向mapper.java的全名 -->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
@@ -62,33 +60,6 @@
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
-
-    <!--<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">-->
-        <!--<constructor-arg index="0" ref="sqlSessionFactory" />-->
-    <!--</bean>-->
-
-    <!-- Mapper代理的配置
-     MapperFactoryBean：根据Mapper接口生成Mapper代理对象-->
-    <!--<bean id="mapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-        <!--&lt;!&ndash; 指定要代理的Mapper接口 &ndash;&gt;-->
-        <!--<property name="mapperInterface" value="org.man4fun.home.mapper.Mapper"/>-->
-        <!--&lt;!&ndash; 生成sqlSession需要的工厂类 &ndash;&gt;-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
-    <!--</bean>-->
-
-    <!-- Mapper批量扫描，从包中扫描出所有Mapper接口，自动创建代理对象，并在Spring中注册
-     扫描得到的mapper的bean的id为mapper类名首字母小写-->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <!-- 指定扫描的包名，如果扫描多个包，每个包之间使用逗号分隔 -->
-        <property name="basePackage" value="org.man4fun.home.mapper"/>
-        <!-- 遵循Mapper代理规范：mapper.java与mapper.xml名称一致且在一个目录。mapper.xml的命名空间指向mapper.java的全名 -->
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-    </bean>
-
-    <!--<bean id="studentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">-->
-        <!--<property name="mapperInterface" value="org.man4fun.home.mapper.StudentMapper" />-->
-        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory" />-->
-    <!--</bean>-->
 
     <!-- jsp页面解析器，当Controller返回XXX字符串时，先通过拦截器，然后该类就会在/WEB-INF/views/目录下，查找XXX.jsp文件 -->
     <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->

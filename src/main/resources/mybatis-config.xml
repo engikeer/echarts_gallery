@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="org.man4fun.home.pojo"/>
+        <package name="org.man4fun.home.model"/>
     </typeAliases>
     <!--<mappers>-->
         <!--<mapper resource="classpath:org/man4fun/home/mapper/Student.xml"/>-->

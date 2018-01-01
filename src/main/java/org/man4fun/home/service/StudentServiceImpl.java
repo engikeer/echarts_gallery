@@ -1,7 +1,7 @@
 package org.man4fun.home.service;
 
-import org.man4fun.home.mapper.StudentMapper;
-import org.man4fun.home.pojo.Student;
+import org.man4fun.home.dao.StudentMapper;
+import org.man4fun.home.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +21,5 @@ public class StudentServiceImpl implements StudentService{
 //        this.studentMapper = studentMapper;
 //    }
 
-    @Override
-    public Student doSomeBusinessStuff(int age) {
-        return this.studentMapper.getStudent(age);
-    }
 
 }
