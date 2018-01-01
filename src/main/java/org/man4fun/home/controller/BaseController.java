@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 
 @Log4j2
 @Controller
@@ -28,6 +30,7 @@ public class BaseController {
         log.trace("trace level");
         log.debug("debug level");
         log.info("info level");
+        log.warn("warn level");
         log.error("error level");
         log.fatal("fatal level");
 
