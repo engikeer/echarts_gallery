@@ -1,18 +1,17 @@
 package org.man4fun.home.controller;
 
+import lombok.extern.log4j.Log4j2;
 import org.man4fun.home.service.LineService;
 import org.man4fun.utils.echarts.Option;
 
 import com.google.gson.*;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-
+@Log4j2
 @Controller
 public class BaseController {
     private Gson gson = new Gson();
@@ -26,13 +25,11 @@ public class BaseController {
     @RequestMapping(value = "/admin.do")
     @ResponseBody
     public String testSpring() {
-
-        Logger logger  = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
-        logger.trace("trace level");
-        logger.debug("debug level");
-        logger.info("info level");
-        logger.error("error level");
-        logger.fatal("fatal level");
+        log.trace("trace level");
+        log.debug("debug level");
+        log.info("info level");
+        log.error("error level");
+        log.fatal("fatal level");
 
         return "My Admin String";
     }

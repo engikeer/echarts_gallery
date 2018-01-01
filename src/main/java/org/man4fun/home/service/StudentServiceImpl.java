@@ -9,15 +9,8 @@ public class StudentServiceImpl implements StudentService{
     private StudentMapper studentMapper;
 
     @Autowired
-    @SuppressWarnings("SpringJavaAutowiringInspection")
     public StudentServiceImpl(StudentMapper studentMapper) {
         this.studentMapper = studentMapper;
     }
-
-//    @Override
-//    public void setStudentMapper(StudentMapper studentMapper) {
-//        this.studentMapper = studentMapper;
-//    }
-
 
 }
