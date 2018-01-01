@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MybatisGenerator {
-    public void generator() throws Exception{
-        List<String> warnings = new ArrayList<String>();
+    private void generator() throws Exception{
+        List<String> warnings = new ArrayList<>();
         boolean overwrite = true;
 
         Resource resource = new ClassPathResource("generatorConfig.xml");
@@ -30,7 +30,6 @@ public class MybatisGenerator {
         try {
             MybatisGenerator mybatisGenerator = new MybatisGenerator();
             mybatisGenerator.generator();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
