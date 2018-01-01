@@ -99,9 +99,4 @@ public class Student {
     public void setAge(Integer age) {
         this.age = age;
     }
-
-    @Override
-    public String toString() {
-        return String.format("[%s - %s]", name, age);
-    }
 }

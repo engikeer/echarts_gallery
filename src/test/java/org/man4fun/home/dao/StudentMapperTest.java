@@ -33,8 +33,7 @@ public class StudentMapperTest extends BaseTest{
     @Test
     public void selectByPrimaryKey() throws Exception {
         Student student = studentMapper.selectByPrimaryKey(210);
-        student.toString();
-        assertEquals("早瀬みる", student.getName());
+        assertEquals("[早瀬みる - 23]", student.toString());
     }
 
     @Test
