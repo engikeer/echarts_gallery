@@ -17,10 +17,9 @@ $(document).ready(function() {
         toolbox: {
             feature: {
                 saveAsImage: {},
-                dataView: {},
                 dataZoom: {},
                 magicType: {
-                    type: ['line', 'bar', 'stack', 'tiled']
+                    type: ['line', 'bar']
                 }
             }
         },
