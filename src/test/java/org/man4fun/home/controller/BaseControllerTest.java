@@ -15,8 +15,13 @@ public class BaseControllerTest extends BaseTest {
 
 
     @Test
-    public void Test() {
+    public void test() {
         System.out.println(gson.toJson(baseController.getOption()));
+    }
+
+    @Test
+    public void testGetBaseBarData() {
+        baseController.getBaseBarData();
     }
 
 }
