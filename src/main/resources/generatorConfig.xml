@@ -180,8 +180,8 @@
         注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写；
         -->
         <!-- schema为数据库名，tableName为表名，domainObjectName是要生成的实体类， enable*是否生成条件类-->
-        <table schema="main" tableName="student" domainObjectName="Student"
-               enableCountByExample="false" enableDeleteByExample="false"
+        <table schema="main" tableName="customers" domainObjectName="Customer"
+               enableCountByExample="true" enableDeleteByExample="false"
                enableSelectByExample="true" enableSelectByPrimaryKey="true">
             <!-- 参考 javaModelGenerator 的 constructorBased属性-->
             <!--<property name="constructorBased" value="false"/>-->
@@ -236,7 +236,7 @@
                 SYBASE      :相当于selectKey的SQL为：SELECT @@IDENTITY
                 JDBC      :相当于在生成的insert元素上添加useGeneratedKeys="true"和keyProperty属性
             -->
-            <generatedKey column="ID" sqlStatement="JDBC" identity="true"/>
+            <generatedKey column="cust_id" sqlStatement="JDBC" identity="true"/>
 
             <!--
             该元素会在根据表中列名计算对象属性名之前先重命名列名，非常适合用于表中的列都有公用的前缀字符串的时候，
@@ -254,7 +254,7 @@
                 注意，一个table元素中可以有多个columnOverride元素
             -->
             <!--<columnOverride column="DATE_FIELD" property="startDate"/>-->
-            <columnOverride column="name">
+            <columnOverride column="cust_name">
                 <!-- 使用property属性来指定列要生成的属性名称 -->
                 <!--<property name="property" value="starDate"/>-->
                 <!-- javaType用于指定生成的domain的属性类型，使用类型的全限定名-->
@@ -286,6 +286,36 @@
             -->
             <!--<ignoreColumn column="FRED"/>-->
 
+        </table>
+
+        <table schema="main" tableName="orderitems" domainObjectName="OrderItem"
+               enableCountByExample="true" enableDeleteByExample="false"
+               enableSelectByExample="true" enableSelectByPrimaryKey="true">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="main" tableName="orders" domainObjectName="Order"
+               enableCountByExample="false" enableDeleteByExample="true"
+               enableSelectByExample="false" enableSelectByPrimaryKey="true">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="main" tableName="vendors" domainObjectName="Vendor"
+               enableCountByExample="true" enableDeleteByExample="false"
+               enableSelectByExample="true" enableSelectByPrimaryKey="true">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="main" tableName="products" domainObjectName="Product"
+               enableCountByExample="true" enableDeleteByExample="false"
+               enableSelectByExample="true" enableSelectByPrimaryKey="true">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
+
+        <table schema="main" tableName="productnotes" domainObjectName="ProductNote"
+               enableCountByExample="true" enableDeleteByExample="false"
+               enableSelectByExample="true" enableSelectByPrimaryKey="true">
+            <property name="useActualColumnNames" value="true"/>
         </table>
 
     </context>
