@@ -6,9 +6,11 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring-servlet.xml")
 public class BaseTest {
+
     @Before
     public void init() {
         //在运行测试之前的业务代码
