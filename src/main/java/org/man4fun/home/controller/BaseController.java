@@ -65,7 +65,6 @@ public class BaseController {
         Goods g5 = new Goods("高跟鞋", 10);
         Goods g6 = new Goods("袜子", 20);
 
-
         List<Goods> goods = new ArrayList<>();
         goods.add(g1);
         goods.add(g2);
