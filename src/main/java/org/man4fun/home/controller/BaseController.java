@@ -41,7 +41,7 @@ public class BaseController {
         return "My Admin String";
     }
 
-    @RequestMapping(value = "/getOption.do", produces="application/json; charset=UTF-8")
+    @RequestMapping(value = "/getOption.do", produces = "application/json; charset=UTF-8")
     @ResponseBody
     public String getOption() {
         Option option = lineService.getOption();
@@ -58,7 +58,6 @@ public class BaseController {
         Goods g4 = new Goods("裤子", 10);
         Goods g5 = new Goods("高跟鞋", 10);
         Goods g6 = new Goods("袜子", 20);
-
 
         List<Goods> goods = new ArrayList<>();
         goods.add(g1);
