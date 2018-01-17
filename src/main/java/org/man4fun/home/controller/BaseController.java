@@ -51,12 +51,6 @@ public class BaseController {
     @RequestMapping(value = "/getBaseBarData.do")
     @ResponseBody
     public String getBaseBarData() {
-//        var data = [{'name': '衬衫', 'value': 5},
-//        {'name': '羊毛衫', value: 20},
-//        {'name': '雪纺衫', value: 36},
-//        {'name': '裤子', value: 10},
-//        {'name': '高跟鞋', value: 10},
-//        {'name': '袜子', value: 20}];
 
         Goods g1 = new Goods("衬衫", 5);
         Goods g2 = new Goods("羊毛衫", 20);
@@ -64,6 +58,7 @@ public class BaseController {
         Goods g4 = new Goods("裤子", 10);
         Goods g5 = new Goods("高跟鞋", 10);
         Goods g6 = new Goods("袜子", 20);
+
 
         List<Goods> goods = new ArrayList<>();
         goods.add(g1);
